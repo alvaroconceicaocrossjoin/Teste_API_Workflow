@@ -1,0 +1,16 @@
+name: Manual Trigger Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Nome para cumprimentar"
+        required: false
+        default: "Mundo"
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar saudação
+        run: echo "Olá, ${{ github.event.inputs.name }}! 👋 Este workflow foi acionado manualmente."
